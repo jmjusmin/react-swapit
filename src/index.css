@@ -221,7 +221,7 @@ button {
 
 .signInBar,
 .signUpBar {
-  margin-top: 3rem;
+  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -265,7 +265,7 @@ button {
 }
 
 .socialLogin {
-  margin-top: 4rem;
+  margin-top: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -294,7 +294,7 @@ button {
 }
 
 .registerLink {
-  margin-top: 4rem;
+  margin-top: 1rem;
   color: #00cc66;
   font-weight: 600;
   text-align: center;
@@ -386,7 +386,7 @@ button {
 .exploreCategoryImg {
   min-height: 115px;
   height: 15vw;
-  width: 100%;
+  width: 85%;
   border-radius: 1.5rem;
   object-fit: cover;
   margin: 0 auto;
@@ -440,6 +440,13 @@ button {
 }
 
 .categoryListingLocation {
+  font-weight: 600;
+  font-size: 0.7rem;
+  opacity: 0.8;
+  margin-bottom: 0;
+}
+
+.categoryListingBrand {
   font-weight: 600;
   font-size: 0.7rem;
   opacity: 0.8;

@@ -52,6 +52,10 @@ function OAuth() {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
 
+      // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+      const credential = FacebookAuthProvider.credentialFromResult(result);
+      const accessToken = credential.accessToken;
+
       //get a user from google the compare it to the document's reference
       const docRef = doc(db, "users", user.uid);
       const docSnap = await getDoc(docRef);
