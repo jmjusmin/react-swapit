@@ -390,7 +390,7 @@ function CreateListing() {
           </div>
 
           {/* Address to meet up */}
-          <label className="formLabel">Address</label>
+          <label className="formLabel">Meet up Address</label>
           <textarea
             className="formInputAddress"
             type="text"
