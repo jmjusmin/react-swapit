@@ -465,7 +465,18 @@ button {
   font-size: 1.1rem;
   color: #00cc66;
   margin-bottom: 0;
-  display: flex;
+
+  align-items: center;
+}
+
+.categoryListingPrice-regular {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #ff0000;
+  margin-bottom: 0;
+  margin-right: 1rem;
+  text-decoration: line-through;
   align-items: center;
 }
 

@@ -17,9 +17,19 @@ function ListingItem({ listing, id, onDelete }) {
           <p className="categoryListingBrand">
             {listing.brand.charAt(0).toUpperCase() + listing.brand.slice(1)}
           </p>
-          <p className="categoryListingName">{listing.name}</p>
+          <p className="categoryListingName">{listing.name.toUpperCase()}</p>
           <p className="categoryListingPrice">
-            ${listing.offer ? listing.discountPrice : listing.regularPrice}
+            {listing.offer && (
+              <>
+                <span className="categoryListingPrice-regular">
+                  ${listing.regularPrice}
+                </span>
+                <span className="categoryListingPrice">
+                  ${listing.discountPrice}
+                </span>
+              </>
+            )}
+            {listing.offer ? null : "$" + listing.regularPrice}
           </p>
           <div className="categoryInfoDiv">
             <p className="categoryListingInfoText">
