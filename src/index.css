@@ -53,7 +53,7 @@ button {
 
 .textarea {
   padding: 1rem 1.5rem;
-  height: 300px;
+  height: 200px;
   border-radius: 1rem;
 }
 
@@ -606,13 +606,13 @@ button {
   font-weight: 600;
 }
 
-.contactLandlord {
+.contactSeller {
   margin-top: 2rem;
   display: flex;
   align-items: center;
 }
 
-.landlordName {
+.sellerName {
   font-weight: 600;
   font-size: 1.2rem;
 }
