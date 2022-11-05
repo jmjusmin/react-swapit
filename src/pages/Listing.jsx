@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css/bundle";
 import { getDoc, doc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { db } from "../firebase.config";
@@ -37,7 +40,25 @@ function Listing() {
 
   return (
     <main>
-      {/* Slider img */}
+      <Swiper
+        // install Swiper modules
+        modules={[Pagination]}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+      >
+        {listing.imageUrls.map((url, index) => (
+          <SwiperSlide key={index}>
+            <div
+              style={{
+                background: `url(${listing.imageUrls[index]}) center no-repeat`,
+                backgroundSize: "cover",
+                minHeight: "20rem",
+              }}
+              className="swiperSlideDiv"
+            ></div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
       <div
         className="shareIconDiv"
         onClick={() => {
@@ -66,12 +87,13 @@ function Listing() {
           </p>
         )}
         <ul className="listingDetailsList">
-          <li>{listing.color}</li>
-          <li>{listing.size}</li>
-          <li>{listing.condition}</li>
+          <li>Color: {listing.color}</li>
+          <li>Size: {listing.size}</li>
+          <li>Condition: {listing.condition}</li>
         </ul>
-        <p className="listingLocationTitle">Meet up Location</p>
 
+        {/* Location */}
+        <p className="listingLocationTitle">Meet up Location</p>
         <div className="leafletContainer">
           <MapContainer
             style={{ height: "100%", width: "100%" }}
