@@ -40,25 +40,6 @@ function Listing() {
 
   return (
     <main>
-      <Swiper
-        // install Swiper modules
-        modules={[Pagination]}
-        slidesPerView={1}
-        pagination={{ clickable: true }}
-      >
-        {listing.imageUrls.map((url, index) => (
-          <SwiperSlide key={index}>
-            <div
-              style={{
-                background: `url(${listing.imageUrls[index]}) center no-repeat`,
-                backgroundSize: "cover",
-                minHeight: "20rem",
-              }}
-              className="swiperSlideDiv"
-            ></div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
       <div
         className="shareIconDiv"
         onClick={() => {
@@ -75,22 +56,48 @@ function Listing() {
       </div>
 
       <div className="listingDetails">
-        <p className="listingName">
-          {listing.name} - $
-          {listing.offer ? listing.discountPrice : listing.regularPrice}
-        </p>
-        <p className="listingBrand">{listing.brand}</p>
-        <p className="listingType">{listing.category}</p>
-        {listing.offer && (
-          <p className="discountPrice">
-            ${listing.regularPrice - listing.discountPrice} discount
-          </p>
-        )}
-        <ul className="listingDetailsList">
-          <li>Color: {listing.color}</li>
-          <li>Size: {listing.size}</li>
-          <li>Condition: {listing.condition}</li>
-        </ul>
+        <div className="flex">
+          <Swiper
+            // install Swiper modules
+            modules={[Pagination]}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            className="swiper-override "
+          >
+            {listing.imageUrls.map((url, index) => (
+              <SwiperSlide key={index}>
+                <div
+                  style={{
+                    background: `url(${listing.imageUrls[index]}) center no-repeat`,
+                    backgroundSize: "cover",
+                    minHeight: "30rem",
+                  }}
+                  className="swiperSlideDiv"
+                ></div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <div className="flex-col">
+            <p className="listingName">
+              {listing.name} - $
+              {listing.offer ? listing.discountPrice : listing.regularPrice}
+            </p>
+            <p className="listingBrand">
+              {listing.brand.charAt(0).toUpperCase() + listing.brand.slice(1)}
+            </p>
+            <p className="listingType">{listing.category}</p>
+            {listing.offer && (
+              <p className="discountPrice">
+                ${listing.regularPrice - listing.discountPrice} discount
+              </p>
+            )}
+            <ul className="listingDetailsList">
+              <li>Color: {listing.color}</li>
+              <li>Size: {listing.size}</li>
+              <li>Condition: {listing.condition}</li>
+            </ul>
+          </div>
+        </div>
 
         {/* Location */}
         <p className="listingLocationTitle">Meet up Location</p>
