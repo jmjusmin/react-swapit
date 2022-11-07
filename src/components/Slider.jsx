@@ -16,7 +16,7 @@ function Slider() {
   useEffect(() => {
     const fetchData = async () => {
       const docRef = collection(db, "listings");
-      const q = query(docRef, orderBy("timestamp", "desc"), limit(5));
+      const q = query(docRef, orderBy("timestamp", "desc"), limit(10));
       const querySnap = await getDocs(q);
 
       let listings = [];
@@ -54,7 +54,9 @@ function Slider() {
             >
               <div
                 style={{
-                  background: `url(${data.imageUrls[0]}) center no-repeat`,
+                  background: `url(${
+                    data.imageUrls[data.imageUrls.length - 1]
+                  }) center no-repeat`,
                   backgroundSize: "cover",
                   minHeight: "20rem",
                 }}

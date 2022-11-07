@@ -64,18 +64,20 @@ function Listing() {
             pagination={{ clickable: true }}
             className="swiper-override "
           >
-            {listing.imageUrls.map((url, index) => (
-              <SwiperSlide key={index}>
-                <div
-                  style={{
-                    background: `url(${listing.imageUrls[index]}) center no-repeat`,
-                    backgroundSize: "cover",
-                    minHeight: "30rem",
-                  }}
-                  className="swiperSlideDiv"
-                ></div>
-              </SwiperSlide>
-            ))}
+            {listing.imageUrls
+              .map((url, index) => (
+                <SwiperSlide key={index}>
+                  <div
+                    style={{
+                      background: `url(${listing.imageUrls[index]}) center no-repeat`,
+                      backgroundSize: "cover",
+                      minHeight: "30rem",
+                    }}
+                    className="swiperSlideDiv"
+                  ></div>
+                </SwiperSlide>
+              ))
+              .reverse()}
           </Swiper>
           <div className="flex-col">
             <p className="listingName">

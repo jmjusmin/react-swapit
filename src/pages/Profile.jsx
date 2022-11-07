@@ -156,7 +156,7 @@ function Profile() {
 
         {!loading && listings?.length > 0 && (
           <>
-            <p className="listingText">Ypur Listings</p>
+            <p className="listingText">Your Listings</p>
             <ul className="lisingsList">
               {listings.map((listing) => (
                 <ListingItem
