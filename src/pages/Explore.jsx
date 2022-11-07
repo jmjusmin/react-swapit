@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
+import Slider from "../components/Slider";
 import topCategoryImg from "../assets/jpg/topCategoryImg.jpg";
 import bottomCategoryImg from "../assets/jpg/bottomCategoryImg.jpg";
 import dressCategoryImg from "../assets/jpg/dressCategoryImg.jfif";
 
 function Explore() {
   return (
-    <div className="explore">
+    <div className="explore pageContainer">
       <header>
         <p className="pageHeader">Explore</p>
       </header>
-      <main>
-        {/* Slider */}
+      <main className="category">
+        <Slider />
         <p className="exploreCategoryHeading">Categories</p>
         <div className="exploreCategories">
           <Link to="/category/top">

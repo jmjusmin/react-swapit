@@ -367,30 +367,31 @@ button {
   left: 0;
   font-weight: 600;
   max-width: 90%;
-  font-size: 1.25rem;
+  font-size: 0.5rem;
   background-color: rgba(0, 0, 0, 0.8);
   padding: 0.5rem;
 }
 @media (min-width: 1024px) {
   .swiperSlideText {
-    font-size: 1.75rem;
+    font-size: 1rem;
   }
 }
 
 .swiperSlidePrice {
   color: #000000;
   position: absolute;
-  top: 143px;
+  top: 120px;
   left: 11px;
+  font-size: 0.7rem;
   font-weight: 600;
   max-width: 90%;
   background-color: #ffffff;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem;
   border-radius: 1rem;
 }
 @media (min-width: 1024px) {
   .swiperSlidePrice {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 }
 
