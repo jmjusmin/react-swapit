@@ -6,17 +6,18 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { doc, updateDoc, getDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase.config";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
 import { v4 as uuidv4 } from "uuid";
 
-function CreateListing() {
+function EditListing() {
   // eslint-disable-next-line
   const [geolocationEnabled, setGeolocationEnabled] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [listing, setListing] = useState(null);
   const [formData, setFormData] = useState({
     name: "",
     category: "top",
@@ -52,8 +53,10 @@ function CreateListing() {
 
   const auth = getAuth();
   const navigate = useNavigate();
+  const params = useParams();
   const isMounted = useRef(true);
 
+  //set userRef to logged-in
   useEffect(() => {
     if (isMounted) {
       onAuthStateChanged(auth, (user) => {
@@ -70,6 +73,33 @@ function CreateListing() {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMounted]);
+
+  // Redirect if listing is not user's
+  useEffect(() => {
+    if (listing && listing.userRef !== auth.currentUser.uid) {
+      toast.error("You can not edit that listing");
+      navigate("/");
+    }
+  });
+
+  //fetch listing to edit
+  useEffect(() => {
+    setLoading(true);
+    const fetchListing = async () => {
+      const docRef = doc(db, "listings", params.listingId);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        setListing(docSnap.data());
+        setFormData({ ...docSnap.data(), address: docSnap.data().location });
+        setLoading(false);
+      } else {
+        navigate("/");
+        toast.error("Listing does not exist.");
+      }
+    };
+    fetchListing();
+  }, [params.listingId, navigate]);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -191,8 +221,9 @@ function CreateListing() {
     location && (formDataCopy.location = location);
     !formDataCopy.offer && delete formDataCopy.discountPrice;
 
-    //submit object to firebase
-    const docRef = await addDoc(collection(db, "listings"), formDataCopy);
+    //update object to firebase
+    const docRef = doc(db, "listings", params.listingId);
+    await updateDoc(docRef, formDataCopy);
     setLoading(false);
     toast.success("Listing saved.");
     navigate(`/category/${formData.category}/${docRef.id}`);
@@ -231,7 +262,7 @@ function CreateListing() {
   return (
     <div className="profile">
       <header>
-        <p className="pageHeader">Create a Listing</p>
+        <p className="pageHeader">Edit a Listing</p>
       </header>
       <main>
         <form onSubmit={onSubmit}>
@@ -504,8 +535,8 @@ function CreateListing() {
             multiple
             required
           />
-          <button type="submit" className="primaryButton createListingButton">
-            Create Listing
+          <button type="submit" className="primaryButton editListingButton">
+            Edit Listing
           </button>
         </form>
       </main>
@@ -513,4 +544,4 @@ function CreateListing() {
   );
 }
 
-export default CreateListing;
+export default EditListing;

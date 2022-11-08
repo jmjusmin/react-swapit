@@ -92,6 +92,8 @@ function Profile() {
     }));
   };
 
+  const onEdit = (listingId) => navigate(`/edit-listing/${listingId}`);
+
   const onDelete = async (listingId) => {
     //confirm
     if (window.confirm("Are you sure to delete listing?")) {
@@ -163,6 +165,7 @@ function Profile() {
                   listing={listing.data}
                   id={listing.id}
                   onDelete={() => onDelete(listing.id)}
+                  onEdit={() => onEdit(listing.id)}
                 />
               ))}
             </ul>
