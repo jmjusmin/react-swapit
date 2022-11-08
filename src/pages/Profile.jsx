@@ -16,7 +16,6 @@ import { toast } from "react-toastify";
 import ListingItem from "../components/ListingItem";
 import arrowRight from "../assets/svg/keyboardArrowRightIcon.svg";
 import clothingIcon from "../assets/svg/clothingIcon.svg";
-import { async } from "@firebase/util";
 
 function Profile() {
   const auth = getAuth();
