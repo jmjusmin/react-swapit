@@ -54,6 +54,7 @@ function OAuth() {
 
       // This gives you a Facebook Access Token. You can use it to access the Facebook API.
       const credential = FacebookAuthProvider.credentialFromResult(result);
+      // eslint-disable-next-line
       const accessToken = credential.accessToken;
 
       //get a user from google the compare it to the document's reference

@@ -57,6 +57,7 @@ function Offers() {
     };
 
     fetchListing();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //Paginatin / Load more
