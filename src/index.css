@@ -25,6 +25,13 @@ button {
   border: none;
 }
 
+.logo {
+  display: block;
+  margin: 1.5rem auto;
+  width: 10rem;
+  cursor: pointer;
+}
+
 .input,
 .passwordInput,
 .emailInput,
@@ -59,7 +66,7 @@ button {
 
 .primaryButton {
   cursor: pointer;
-  background: #00cc66;
+  background: #6c4ab6;
   border-radius: 1rem;
   padding: 0.85rem 2rem;
   color: #ffffff;
@@ -101,7 +108,7 @@ button {
   .listingDetails,
   .category,
   .explore {
-    margin: 3rem;
+    margin: 0 3rem;
   }
 }
 
@@ -122,7 +129,7 @@ button {
   width: 64px;
   height: 64px;
   border: 8px solid;
-  border-color: #00cc66 transparent #00cc66 transparent;
+  border-color: #6c4ab6 transparent #6c4ab6 transparent;
   border-radius: 50%;
   animation: spin 1.2s linear infinite;
 }
@@ -138,6 +145,7 @@ button {
 .pageHeader {
   font-size: 2rem;
   font-weight: 800;
+  margin-top: 0;
 }
 
 .navbar {
@@ -214,9 +222,14 @@ button {
 
 .forgotPasswordLink {
   cursor: pointer;
-  color: #00cc66;
+  color: #6c4ab6;
   font-weight: 600;
   text-align: right;
+}
+
+.signInDiv,
+.signUpDiv {
+  margin-bottom: 10rem;
 }
 
 .signInBar,
@@ -254,7 +267,7 @@ button {
   align-items: center;
   width: 3rem;
   height: 3rem;
-  background-color: #00cc66;
+  background-color: #6c4ab6;
   border-radius: 50%;
 }
 @media (min-width: 1024px) {
@@ -295,7 +308,7 @@ button {
 
 .registerLink {
   margin-top: 1rem;
-  color: #00cc66;
+  color: #6c4ab6;
   font-weight: 600;
   text-align: center;
   margin-bottom: 3rem;
@@ -484,7 +497,7 @@ button {
   margin-top: 0.5rem;
   font-weight: 600;
   font-size: 1.1rem;
-  color: #00cc66;
+  color: #6c4ab6;
   margin-bottom: 0;
 
   align-items: center;
@@ -494,7 +507,7 @@ button {
   margin-top: 0.5rem;
   font-weight: 600;
   font-size: 0.8rem;
-  color: #ff0000;
+  color: #fb2576;
   margin-bottom: 0;
   margin-right: 1rem;
   text-decoration: line-through;
@@ -568,7 +581,7 @@ button {
 
 .listingType {
   padding: 0.25rem 0.5rem;
-  background-color: #00cc66;
+  background-color: #6c4ab6;
   color: #ffffff;
   border-radius: 2rem;
   display: inline;
@@ -671,7 +684,7 @@ button {
   font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
-  background-color: #00cc66;
+  background-color: #6c4ab6;
   padding: 0.25rem 0.75rem;
   border-radius: 1rem;
 }
@@ -689,7 +702,7 @@ button {
 .changePersonalDetails {
   cursor: pointer;
   font-weight: 600;
-  color: #00cc66;
+  color: #6c4ab6;
 }
 
 .profileCard {
@@ -784,7 +797,7 @@ button {
   align-items: center;
 }
 .formButtonActive {
-  background-color: #00cc66;
+  background-color: #6c4ab6;
   color: #ffffff;
 }
 
@@ -839,7 +852,7 @@ button {
   width: 100%;
 }
 .formInputFile::-webkit-file-upload-button {
-  background-color: #00cc66;
+  background-color: #6c4ab6;
   border: none;
   color: #ffffff;
   font-weight: 600;
@@ -848,7 +861,8 @@ button {
   margin-right: 1rem;
 }
 
-.createListingButton {
+.createListingButton,
+.editListingButton {
   margin-top: 5rem;
 }
 

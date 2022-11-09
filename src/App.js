@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Logo from "./components/Logo";
 import NavBar from "./components/NavBar";
 import PrivateRoute from "./components/PrivateRoute";
 import Explore from "./pages/Explore";
@@ -18,6 +19,7 @@ function App() {
   return (
     <>
       <Router>
+        <Logo />
         <Routes>
           <Route path="/" element={<Explore />} />
           <Route path="/category/:categoryName" element={<Category />} />

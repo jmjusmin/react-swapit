@@ -56,7 +56,7 @@ function SignIn() {
         <header>
           <p className="pageHeader">Welcome Back!</p>
         </header>
-        <main>
+        <main className="signInDiv">
           <form onSubmit={onSubmit}>
             <input
               type="email"
